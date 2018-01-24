@@ -1,0 +1,8 @@
+.post-it {
+    width: 100px;
+    height: 200px;
+    background-color: gold;
+    text-align: center;
+    font-family: cursive;
+    color: blue;
+}

@@ -1,0 +1,10 @@
+.box {
+    border: 2px solid black;
+    height: 100px;
+    width: 66%;  
+}
+
+.box:hover {
+    background-color: lightblue;
+    font-size: xx-large;
+}
