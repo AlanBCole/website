@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NotebookPageComponent } from './notebook-page.component';
+import { NotebookPageComponent } from './sticky-note.component';
 
 describe('NotebookPageComponent', () => {
   let component: NotebookPageComponent;

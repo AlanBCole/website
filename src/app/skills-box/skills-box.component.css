@@ -1,6 +1,6 @@
 .box {
     border: 2px solid black;
-    height: 100px;
+    /* height: 100px; */
     width: 50%;
     margin:-2px 11% 0 39%;
 }

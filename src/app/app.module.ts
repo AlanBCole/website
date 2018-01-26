@@ -8,7 +8,7 @@ import { NameBoxComponent } from './name-box/name-box.component';
 import { AboutBoxComponent } from './about-box/about-box.component';
 import { SkillsBoxComponent } from './skills-box/skills-box.component';
 import { ExperienceBoxComponent } from './experience-box/experience-box.component';
-import { NotebookPageComponent } from './notebook-page/notebook-page.component';
+import { StickyNoteComponent } from './sticky-note/sticky-note.component';
 import { DeskComponent } from './desk/desk.component';
 import { PaperComponent } from './paper/paper.component';
 
@@ -19,7 +19,7 @@ import { PaperComponent } from './paper/paper.component';
     AboutBoxComponent,
     SkillsBoxComponent,
     ExperienceBoxComponent,
-    NotebookPageComponent,
+    StickyNoteComponent,
     DeskComponent,
     PaperComponent
   ],
