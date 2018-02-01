@@ -1,4 +1,6 @@
-<div class="desktop">
-    <app-paper></app-paper>
-    <app-sticky-note></app-sticky-note> 
+<div 
+    class="desktop"
+    (drop)="dropHandler($event)">
+        <app-paper></app-paper>
+        <app-sticky-note></app-sticky-note>
 </div>

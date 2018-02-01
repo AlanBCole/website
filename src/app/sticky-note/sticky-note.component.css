@@ -6,9 +6,16 @@
     font-family: cursive;
     color: blue;
     box-shadow: 0 5px 5px black;
+    cursor: -webkit-grab;
+    position: absolute;
+    top: 50px;
+    left: 10px;
 }
 
-.sticky-note:hover {
-    cursor: -webkit-grab;
-    background-color: rgba(255, 215, 0, .85);
+.moving {
+    top: -50px;
+    left: -10px;
+    box-shadow: 10px 50px 5px black;
+    opacity: .85;
+    cursor: -webkit-grabbing;
 }

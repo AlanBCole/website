@@ -1,4 +1,5 @@
 .desktop {
+    position: relative;
     background-image: url("../../assets/images/desktop.jpg");
     height: 100vh;
     margin: 0;
