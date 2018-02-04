@@ -11,7 +11,9 @@ import { ExperienceBoxComponent } from './experience-box/experience-box.componen
 import { StickyNoteComponent } from './sticky-note/sticky-note.component';
 import { DeskComponent } from './desk/desk.component';
 import { PaperComponent } from './paper/paper.component';
-
+import { PenComponent } from './pen/pen.component';
+import { MoveElementService } from './move-element.service';
+ 
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,14 +23,15 @@ import { PaperComponent } from './paper/paper.component';
     ExperienceBoxComponent,
     StickyNoteComponent,
     DeskComponent,
-    PaperComponent
+    PaperComponent,
+    PenComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [MoveElementService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

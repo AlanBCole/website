@@ -11,11 +11,3 @@
     top: 50px;
     left: 10px;
 }
-
-.moving {
-    top: -50px;
-    left: -10px;
-    box-shadow: 10px 50px 5px black;
-    opacity: .85;
-    cursor: -webkit-grabbing;
-}

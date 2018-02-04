@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { StickyNoteComponent } from './sticky-note.component';
+import { PenComponent } from './pen.component';
 
-describe('StickyNoteComponent', () => {
-  let component: StickyNoteComponent;
-  let fixture: ComponentFixture<StickyNoteComponent>;
+describe('PenComponent', () => {
+  let component: PenComponent;
+  let fixture: ComponentFixture<PenComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ StickyNoteComponent ]
+      declarations: [ PenComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(StickyNoteComponent);
+    fixture = TestBed.createComponent(PenComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
