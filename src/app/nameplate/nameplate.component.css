@@ -1,0 +1,8 @@
+.nameplate {
+    text-align: center;
+    font-family: Courier New, Courier, monospace;
+    color: whitesmoke;
+    background-color: chocolate;
+    width: 300px;
+    margin: 0 auto;
+}

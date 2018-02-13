@@ -1,10 +1,9 @@
 .sticky-note {
-    height: 200px;
-    width: 200px;
+    height: 210px;
+    width: 210px;
     background-color: gold;
     text-align: center;
     font-family: cursive;
-    color: blue;
     box-shadow: 0 5px 5px black;
     cursor: -webkit-grab;
     position: absolute;
