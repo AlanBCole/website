@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+
+import { Note } from '../desk/note.model';
 import { MoveElementService } from '../move-element.service';
 
 @Component({
@@ -9,9 +11,12 @@ import { MoveElementService } from '../move-element.service';
 
 export class StickyNoteComponent implements OnInit {
 
+    @Input()
+    stickyNote: Note;
+
     constructor(private moveService: MoveElementService) { }
 
     ngOnInit() {
+        console.log(this.stickyNote);
     }
-
 }

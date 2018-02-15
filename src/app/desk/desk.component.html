@@ -3,7 +3,10 @@
         <app-sticky-note-block></app-sticky-note-block>
         <app-nameplate></app-nameplate>
         <app-paper></app-paper>
-        <app-sticky-note></app-sticky-note>
+        <app-sticky-note
+            *ngFor="let note of notes"
+            [stickyNote]="note">
+        </app-sticky-note>
         <app-pen></app-pen>
     </div>
 </div>
