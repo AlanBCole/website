@@ -16,4 +16,8 @@ export class DeskComponent implements OnInit {
         ngOnInit() {
         }
 
+    showOnDeskNewNoteModal(event) {
+        console.log('from the desktop, show newNoteModal?', event);
+    }
+
     }

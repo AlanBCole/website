@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-sticky-note-block',
@@ -8,21 +8,22 @@ import { Component, OnInit } from '@angular/core';
 export class StickyNoteBlockComponent implements OnInit {
 
   isAddSignShown: Boolean = false;
+  @Output() showNewNoteModal = new EventEmitter<boolean>();
   constructor() { }
 
   ngOnInit() {
   }
 
   showAddSign() {
-    this.isAddSignShown = !this.isAddSignShown;
-    if (this.isAddSignShown) {
-      console.log('show the add sign');
-    } else {
-      console.log('hide the add sign');
-    }
+    this.isAddSignShown = true;
+  }
+
+  hideAddSign() {
+    this.isAddSignShown = false;
   }
 
   leaveANote() {
+    this.showNewNoteModal.emit(true);
     console.log('I\'m trying to make a new note but I need to do a few things first:');
     console.log('  1. put the notes in an array/model', ' 2.  *ngFor', '3. template binding stuff', '4. create a modal for the note.');
   }

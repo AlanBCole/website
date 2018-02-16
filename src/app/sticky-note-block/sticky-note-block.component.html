@@ -1,6 +1,6 @@
 <div class="sticky-note-block"
     (mouseenter)="showAddSign()"
-    (mouseleave)="showAddSign()"
+    (mouseleave)="hideAddSign()"
     (click)="leaveANote()">
         <p *ngIf="!isAddSignShown">leave me a note!</p>
         <div class="add-note" *ngIf="isAddSignShown">
