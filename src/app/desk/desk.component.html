@@ -1,5 +1,9 @@
 <div class="desktop">
-    <app-modal *ngIf="isModalShown"></app-modal>
+    
+    <app-modal 
+        *ngIf="isModalShown"
+        (showNewNoteModal)="showOnDeskNewNoteModal($event)">
+    </app-modal>
 
     <div class="work-area">
 

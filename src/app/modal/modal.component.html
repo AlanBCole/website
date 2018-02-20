@@ -1,5 +1,28 @@
 <div class="modal-background">
     <div class="modal-content">
-        <h1>Here is a Modal</h1>
+        <span 
+            class="close-btn"
+            (click)="closeThisModal()">X</span>
+        <h1>leave me a note</h1>
+        <p>I'll send you an e-mail, too.</p>
+
+        <form #stickyNoteForm="ngForm">
+
+            <label for="first-name">first name</label>
+            <input type="text" id="first-name">
+
+            <label for="last-name">last name</label>
+            <input type="text" id="first-name">
+
+            <label for="reason-for-note">reason for note</label>
+            <select name="" id="reason-for-note">
+                <option 
+                    *ngFor="let reason of reasonsForNote"
+                    [value]="reason">
+                        {{ reason }}
+                </option>
+            </select>
+
+        </form>
     </div>
 </div>

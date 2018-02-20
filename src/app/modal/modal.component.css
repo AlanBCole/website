@@ -17,4 +17,20 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    padding: 2rem;
+}
+
+.close-btn {
+    font-size: x-large;
+    font-family: Arial, Helvetica, sans-serif;
+    position: absolute;
+    top: .5rem;
+    right: 1rem;
+    padding: 2px 5px;
+    border-radius: 3px;
+}
+
+.close-btn:hover {
+    background-color: rgba(0, 0, 0, 0.25);
+    cursor: default;
 }
