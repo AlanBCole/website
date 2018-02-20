@@ -2,26 +2,67 @@
     <div class="modal-content">
         <span 
             class="close-btn"
-            (click)="closeThisModal()">X</span>
+            (click)="closeThisModal()">
+                X
+        </span>
+
         <h1>leave me a note</h1>
         <p>I'll send you an e-mail, too.</p>
-
+        <p>{{newStickyNote}}</p>
         <form #stickyNoteForm="ngForm">
 
             <label for="first-name">first name</label>
-            <input type="text" id="first-name">
+            <input 
+                type="text"
+                id="first-name"
+                name="first-name"
+                [(ngModel)]="newStickyNote.firstName"
+                #firstName="ngModel"
+                required>
 
             <label for="last-name">last name</label>
-            <input type="text" id="first-name">
+            <input
+                type="text"
+                id="last-name"
+                name="last-name"
+                [(ngModel)]="newStickyNote.lastName"
+                #lastName="ngModel"
+                required>
+
+            <label for="email">email</label>
+            <input
+                type="email"
+                id="email"
+                name="email"
+                [(ngModel)]="newStickyNote.email"
+                #email="ngModel"
+                required>
 
             <label for="reason-for-note">reason for note</label>
-            <select name="" id="reason-for-note">
-                <option 
-                    *ngFor="let reason of reasonsForNote"
-                    [value]="reason">
-                        {{ reason }}
-                </option>
+            <select 
+                name="reason" 
+                id="reason-for-note"
+                [(ngModel)]="newStickyNote.reasonForNote"
+                #reason="ngModel"
+                required>
+                    <option 
+                        *ngFor="let reason of reasonsForNote"
+                        [value]="reason">
+                            {{ reason }}
+                    </option>
             </select>
+
+            <label for="message">message</label>
+            <textarea
+                type="text"
+                id="message"
+                name="message"
+                [(ngModel)]="newStickyNote.message"
+                required></textarea>
+
+            <button type="button" (click)="submitNewStickyNote()">
+                leave a note
+            </button>
 
         </form>
     </div>

@@ -24,4 +24,9 @@ export class DeskComponent implements OnInit {
         this.isModalShown = event;
     }
 
+    addNewNoteToDesk(newNote: Note) {
+        this.notes.push(newNote);
+        this.isModalShown = false;
+    }
+
     }

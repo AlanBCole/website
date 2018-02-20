@@ -2,7 +2,8 @@
     
     <app-modal 
         *ngIf="isModalShown"
-        (showNewNoteModal)="showOnDeskNewNoteModal($event)">
+        (showNewNoteModal)="showOnDeskNewNoteModal($event)"
+        (addThisStickyNote)="addNewNoteToDesk($event)">
     </app-modal>
 
     <div class="work-area">

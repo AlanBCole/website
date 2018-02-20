@@ -8,13 +8,15 @@ import { Note } from '../note.model';
     styleUrls: ['./modal.component.css']
 })
 export class ModalComponent implements OnInit {
-    newStickyNote: Note;
+
+    newStickyNote = new Note('', '', '', '', '');
     reasonsForNote = [
         'Just saying hi!',
         'I have a project for you.',
         'I\'d like to talk to you'
     ];
     @Output() showNewNoteModal = new EventEmitter<boolean>();
+    @Output() addThisStickyNote = new EventEmitter<Note>();
 
     constructor() { }
 
@@ -23,5 +25,10 @@ export class ModalComponent implements OnInit {
 
     closeThisModal() {
         this.showNewNoteModal.emit(false);
+    }
+
+    submitNewStickyNote() {
+        console.log(this.newStickyNote);
+        this.addThisStickyNote.emit(this.newStickyNote);
     }
 }
