@@ -15,6 +15,7 @@ import { PenComponent } from './pen/pen.component';
 import { MoveElementService } from './move-element.service';
 import { StickyNoteBlockComponent } from './sticky-note-block/sticky-note-block.component';
 import { NameplateComponent } from './nameplate/nameplate.component';
+import { ModalComponent } from './modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { NameplateComponent } from './nameplate/nameplate.component';
     PaperComponent,
     PenComponent,
     StickyNoteBlockComponent,
-    NameplateComponent
+    NameplateComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,

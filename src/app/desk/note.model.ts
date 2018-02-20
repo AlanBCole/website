@@ -14,6 +14,6 @@ export class Note {
         this.message = message;
 
         Note.index += 1;
-        console.log(this);
+        // console.log(this);
     }
 }

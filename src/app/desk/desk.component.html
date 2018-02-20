@@ -1,6 +1,11 @@
 <div class="desktop">
-    <div class="container">
-        <app-sticky-note-block (showNewNoteModal)="showOnDeskNewNoteModal($event)"></app-sticky-note-block>
+    <app-modal *ngIf="isModalShown"></app-modal>
+
+    <div class="work-area">
+
+        <app-sticky-note-block 
+            (showNewNoteModal)="showOnDeskNewNoteModal($event)">
+        </app-sticky-note-block>
         <app-nameplate></app-nameplate>
         <app-paper></app-paper>
         <app-sticky-note
@@ -8,5 +13,6 @@
             [stickyNote]="note">
         </app-sticky-note>
         <app-pen></app-pen>
-    </div>
+
+    </div> <!-- .work-area -->
 </div>
