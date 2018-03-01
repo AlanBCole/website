@@ -9,8 +9,8 @@ import { Note } from '../note.model';
 export class DeskComponent implements OnInit {
 
     notes: Note[] = [
-        new Note('Jerry', 'Springer', 'just stopped by', 'I need to talk to you about the show! Call me. 312.325.9090', 'hey@hey.com'),
-        new Note('Larry', 'Sanders', 'I have a project for you.', 'I know I am not real, but please build an app for me!', 'hey@hey.com')
+        new Note('Jerry', 'Springer', 'just stopped by', 'I need to talk to you about the show! Call me. 312.325.9090', 'hey@hey.com', "ACME company"),
+        new Note('Larry', 'Sanders', 'I have a project for you.', 'I know I am not real, but please build an app for me!', 'hey@hey.com', "ACME company")
     ];
     isModalShown = false;
 

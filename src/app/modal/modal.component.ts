@@ -9,7 +9,7 @@ import { Note } from '../note.model';
 })
 export class ModalComponent implements OnInit {
 
-    newStickyNote = new Note('', '', '', '', '');
+    newStickyNote = new Note('', '', '', '', '', '');
     reasonsForNote = [
         'Just saying hi!',
         'I have a project for you.',
@@ -30,5 +30,9 @@ export class ModalComponent implements OnInit {
     submitNewStickyNote() {
         console.log(this.newStickyNote);
         this.addThisStickyNote.emit(this.newStickyNote);
+    }
+
+    get showStickyNoteDetails() {
+        return JSON.stringify(this.newStickyNote);
     }
 }
