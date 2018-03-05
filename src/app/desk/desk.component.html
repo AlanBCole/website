@@ -7,17 +7,16 @@
     </app-modal>
 
     <div class="work-area">
+        <app-nameplate></app-nameplate>
 
         <app-sticky-note-block 
             (showNewNoteModal)="showOnDeskNewNoteModal($event)">
         </app-sticky-note-block>
-        <app-nameplate></app-nameplate>
         <app-paper></app-paper>
         <app-sticky-note
             *ngFor="let note of notes"
             [stickyNote]="note">
         </app-sticky-note>
         <app-pen></app-pen>
-
     </div> <!-- .work-area -->
 </div>

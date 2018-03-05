@@ -17,6 +17,6 @@ export class StickyNoteComponent implements OnInit {
     constructor(private moveService: MoveElementService) { }
 
     ngOnInit() {
-        console.log(this.stickyNote);
+        console.log('sticky note ngOnInit:', this.stickyNote);
     }
 }

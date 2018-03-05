@@ -1,8 +1,17 @@
 .nameplate {
-    text-align: center;
-    font-family: Courier New, Courier, monospace;
-    color: whitesmoke;
-    background-color: chocolate;
-    width: 300px;
-    margin: 0 auto;
+    font-size: 1.5rem;
+    font-family: Futura;
+    background-color: rgba(102, 102, 102 .5);
+    color: rgba(245,245,245,0.5);
+    position: absolute;
+    top: 0;
+    right: 10px;
+}
+
+h3 {
+    margin: 1rem 0 0 0;
+}
+
+h1 {
+    margin: 0;
 }

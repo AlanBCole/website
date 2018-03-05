@@ -28,7 +28,7 @@ export class ModalComponent implements OnInit {
     }
 
     submitNewStickyNote() {
-        console.log(this.newStickyNote);
+        console.log('note modal:', this.newStickyNote);
         this.addThisStickyNote.emit(this.newStickyNote);
     }
 
