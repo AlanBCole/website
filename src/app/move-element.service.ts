@@ -4,10 +4,13 @@ import { NotePosition } from './note-position.model';
 
 @Injectable()
 export class MoveElementService {
-    @Output()
-    changeNotePosition: EventEmitter<NotePosition> = new EventEmitter();
+    @Output() changeNotePosition: EventEmitter<NotePosition> = new EventEmitter();
+    zIndex = 0;
 
-    moveElement(event) {
+    moveElement(event, i) {
+
+        this.zIndex += 1;
+
         let position1 = 0;
         let position2 = 0;
         let position3 = 0;
@@ -15,32 +18,37 @@ export class MoveElementService {
 
         const element = event.target;
         element.classList.add('moving');
+        element.style.zIndex = this.zIndex;
 
         position3 = event.clientX;
         position4 = event.clientY;
 
-        element.onmousemove = function(ev) {
-            position1 = position3 - ev.clientX;
-            position2 = position4 - ev.clientY;
-            position3 = ev.clientX;
-            position4 = ev.clientY;
+        document.onmousemove = (event: MouseEvent) => {
+            position1 = position3 - event.clientX;
+            position2 = position4 - event.clientY;
+            position3 = event.clientX;
+            position4 = event.clientY;
 
-            element.style.top = (element.offsetTop - position2) + 'px';
-            element.style.left = (element.offsetLeft - position1) + 'px';
+            element.style.top = (element.offsetTop - position2).toString() + 'px';
+            element.style.left = (element.offsetLeft - position1).toString() + 'px';
         };
 
-        element.onmouseup = function() {
+        document.onmouseup = () => {
             element.classList.remove('moving');
+            if (element.className === 'sticky-note') {
 
-            const notePosition = {
-                top: element.style.top,
-                left: element.style.left
-            };
+                const notePosition: NotePosition = {
+                    top: element.style.top,
+                    left: element.style.left,
+                    noteIndex: i
+                };
 
-            this.changeNotePosition.emit(notePosition);
+                this.changeNotePosition.emit(notePosition);
+            }
 
-            element.onmouseup = null;
-            element.onmousemove = null;
+
+            document.onmouseup = null;
+            document.onmousemove = null;
         };
     }
 }

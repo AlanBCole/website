@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 import { Note } from '../note.model';
-import { MoveElementService } from '../move-element.service';
+import { NotePosition } from '../note-position.model';
 
 @Component({
     selector: 'app-sticky-note',
@@ -14,13 +14,9 @@ export class StickyNoteComponent implements OnInit {
     @Input()
     stickyNote: Note;
 
-    constructor(private moveService: MoveElementService) { }
+    constructor() { }
 
     ngOnInit() {
         console.log('sticky note ngOnInit:', this.stickyNote);
-        this.moveService.changeNotePosition.subscribe(newNotePosition => {
-            this.stickyNote.topPosition = newNotePosition.top;
-            this.stickyNote.leftPosition = newNotePosition.left;
-        });
     }
 }

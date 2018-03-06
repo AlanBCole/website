@@ -14,9 +14,10 @@
         </app-sticky-note-block>
         <app-paper></app-paper>
         <app-sticky-note
-            *ngFor="let note of notes"
-            [stickyNote]="note">
+            *ngFor="let note of notes; index as i"
+            [stickyNote]="note"
+            (mousedown)="moveService.moveElement($event, i)">
         </app-sticky-note>
-        <app-pen></app-pen>
+        <app-pen (mousedown)="moveService.moveElement($event)"></app-pen>
     </div> <!-- .work-area -->
 </div>

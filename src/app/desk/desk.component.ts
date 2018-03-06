@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { Note } from '../note.model';
 import { NoteService } from '../note-service.service';
+import { MoveElementService } from '../move-element.service';
 
 @Component({
     selector: 'app-desk',
@@ -12,9 +13,15 @@ export class DeskComponent implements OnInit {
     notes = this.noteService.notes;
     isModalShown = false;
 
-    constructor(private noteService: NoteService) { }
+    constructor(
+        private noteService: NoteService,
+        private moveService: MoveElementService) { }
 
     ngOnInit() {
+        this.moveService.changeNotePosition.subscribe((newNotePosition) => {
+            this.notes[newNotePosition.noteIndex].topPosition = newNotePosition.top;
+            this.notes[newNotePosition.noteIndex].leftPosition = newNotePosition.left;
+        });
     }
 
     showOnDeskNewNoteModal(event: boolean) {
