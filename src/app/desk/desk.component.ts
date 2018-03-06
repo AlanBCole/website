@@ -25,8 +25,6 @@ export class DeskComponent implements OnInit {
     addNewNoteToDesk(newNote: Note) {
         this.notes.push(newNote);
         this.isModalShown = false;
-        console.log('desktop - is the modal shown?', this.isModalShown);
         console.log('desktop - note added: ', this.notes[0]);
     }
-
-    }
+}

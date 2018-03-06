@@ -5,6 +5,8 @@ export class Note {
     message: string;
     email: string;
     company: string;
+    topPosition: number;
+    leftPosition: number;
 
     constructor(firstName: string, lastName: string, reason: string, message: string, email: string, company: string) {
 

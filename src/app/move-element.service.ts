@@ -1,7 +1,11 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Output, EventEmitter } from '@angular/core';
+
+import { NotePosition } from './note-position.model';
 
 @Injectable()
 export class MoveElementService {
+    @Output()
+    changeNotePosition: EventEmitter<NotePosition> = new EventEmitter();
 
     moveElement(event) {
         let position1 = 0;
@@ -9,25 +13,13 @@ export class MoveElementService {
         let position3 = 0;
         let position4 = 0;
 
-        console.log('mousedown!');
         const element = event.target;
         element.classList.add('moving');
-        console.log(event);
 
         position3 = event.clientX;
         position4 = event.clientY;
-        console.log(position3, position4);
 
-        document.onmouseup = function() {
-
-            console.log('mouseup!, Did it move?');
-            element.classList.remove('moving');
-            document.onmouseup = null;
-            document.onmousemove = null;
-        };
-
-        document.onmousemove = function(ev) {
-            console.log(ev);
+        element.onmousemove = function(ev) {
             position1 = position3 - ev.clientX;
             position2 = position4 - ev.clientY;
             position3 = ev.clientX;
@@ -35,6 +27,20 @@ export class MoveElementService {
 
             element.style.top = (element.offsetTop - position2) + 'px';
             element.style.left = (element.offsetLeft - position1) + 'px';
+        };
+
+        element.onmouseup = function() {
+            element.classList.remove('moving');
+
+            const notePosition = {
+                top: element.style.top,
+                left: element.style.left
+            };
+
+            this.changeNotePosition.emit(notePosition);
+
+            element.onmouseup = null;
+            element.onmousemove = null;
         };
     }
 }

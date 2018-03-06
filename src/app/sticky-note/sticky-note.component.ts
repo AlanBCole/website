@@ -18,5 +18,9 @@ export class StickyNoteComponent implements OnInit {
 
     ngOnInit() {
         console.log('sticky note ngOnInit:', this.stickyNote);
+        this.moveService.changeNotePosition.subscribe(newNotePosition => {
+            this.stickyNote.topPosition = newNotePosition.top;
+            this.stickyNote.leftPosition = newNotePosition.left;
+        });
     }
 }
