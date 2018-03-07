@@ -23,11 +23,11 @@ export class MoveElementService {
         position3 = event.clientX;
         position4 = event.clientY;
 
-        document.onmousemove = (event: MouseEvent) => {
-            position1 = position3 - event.clientX;
-            position2 = position4 - event.clientY;
-            position3 = event.clientX;
-            position4 = event.clientY;
+        document.onmousemove = (ev: MouseEvent) => {
+            position1 = position3 - ev.clientX;
+            position2 = position4 - ev.clientY;
+            position3 = ev.clientX;
+            position4 = ev.clientY;
 
             element.style.top = (element.offsetTop - position2).toString() + 'px';
             element.style.left = (element.offsetLeft - position1).toString() + 'px';
