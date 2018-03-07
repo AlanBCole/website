@@ -9,7 +9,17 @@ import { Note } from '../note.model';
 })
 export class ModalComponent implements OnInit {
 
-    newStickyNote = new Note('', '', '', '', '', '');
+    newStickyNote: Note= {
+        firstName: '',
+        lastName: '',
+        reasonForNote: '',
+        message: '',
+        email: '',
+        company: '',
+        topPosition: '',
+        leftPosition: '',
+    };
+
     reasonsForNote = [
         'Just saying hi!',
         'I have a project for you.',

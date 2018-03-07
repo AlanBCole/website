@@ -2,7 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { AngularFireModule } from 'angularfire2';
+import { HttpClientModule } from '@angular/common/http';
+import { environment } from '../environments/environment';
 
 import { AppComponent } from './app.component';
 import { NameBoxComponent } from './name-box/name-box.component';
@@ -18,16 +19,7 @@ import { NameplateComponent } from './nameplate/nameplate.component';
 import { ModalComponent } from './modal/modal.component';
 
 import { MoveElementService } from './move-element.service';
-import { NoteService } from './note-service.service';
-
-export const firebaseConfig = {
-  apiKey: 'AIzaSyDZ-IEb0rsLH8p_C3uxpxRXrogd7bvv36w',
-  authDomain: 'alanbcolecodewebsite.firebaseapp.com',
-  databaseURL: 'https://alanbcolecodewebsite.firebaseio.com',
-  projectId: 'alanbcolecodewebsite',
-  storageBucket: 'alanbcolecodewebsite.appspot.com',
-  messagingSenderId: '1093057421499'
-};
+import { FirebaseService } from './firebase-service.service';
 
 @NgModule({
   declarations: [
@@ -48,11 +40,12 @@ export const firebaseConfig = {
     BrowserModule,
     FormsModule,
     HttpModule,
-    AngularFireModule.initializeApp(firebaseConfig)
+    HttpClientModule
   ],
   providers: [
     MoveElementService,
-    NoteService],
+    FirebaseService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

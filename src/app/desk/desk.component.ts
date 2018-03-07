@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Response } from '@angular/http';
 import { Note } from '../note.model';
-import { NoteService } from '../note-service.service';
+import { FirebaseService } from '../firebase-service.service';
 import { MoveElementService } from '../move-element.service';
 
 @Component({
@@ -10,17 +10,23 @@ import { MoveElementService } from '../move-element.service';
     styleUrls: ['./desk.component.css']
 })
 export class DeskComponent implements OnInit {
-    notes = this.noteService.notes;
+    // private stickyNotesCollection: AngularFirestoreCollection<Note>;
+    stickyNotes = [];
     isModalShown = false;
 
     constructor(
-        private noteService: NoteService,
-        private moveService: MoveElementService) { }
+        private firebase: FirebaseService,
+        private moveService: MoveElementService) {}
 
     ngOnInit() {
+        this.firebase.getNotes()
+            .subscribe((response: Response) => {
+                console.log(response);
+            });
+
         this.moveService.changeNotePosition.subscribe((newNotePosition) => {
-            this.notes[newNotePosition.noteIndex].topPosition = newNotePosition.top;
-            this.notes[newNotePosition.noteIndex].leftPosition = newNotePosition.left;
+            this.stickyNotes[newNotePosition.noteIndex].topPosition = newNotePosition.top;
+            this.stickyNotes[newNotePosition.noteIndex].leftPosition = newNotePosition.left;
         });
     }
 
@@ -30,8 +36,17 @@ export class DeskComponent implements OnInit {
     }
 
     addNewNoteToDesk(newNote: Note) {
-        this.notes.push(newNote);
+        this.stickyNotes.push(newNote);
+        this.firebase.addNote(this.stickyNotes)
+            .subscribe((response: Response) => {
+                console.log(response);
+        });
+
+        this.firebase.getNotes()
+            .subscribe((response: Response) => {
+                console.log(response);
+            });
         this.isModalShown = false;
-        console.log('desktop - note added: ', this.notes[0]);
+        console.log('desktop - note added: ', this.stickyNotes[0]);
     }
 }
