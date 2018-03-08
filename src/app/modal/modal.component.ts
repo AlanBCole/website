@@ -38,11 +38,6 @@ export class ModalComponent implements OnInit {
     }
 
     submitNewStickyNote() {
-        console.log('note modal:', this.newStickyNote);
         this.addThisStickyNote.emit(this.newStickyNote);
-    }
-
-    get showStickyNoteDetails() {
-        return JSON.stringify(this.newStickyNote);
     }
 }

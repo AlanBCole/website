@@ -14,7 +14,7 @@
         </app-sticky-note-block>
         <app-paper></app-paper>
         <app-sticky-note
-            *ngFor="let note of notes | async; index as i"
+            *ngFor="let note of stickyNotes; index as i"
             [stickyNote]="note"
             (mousedown)="moveService.moveElement($event, i)">
         </app-sticky-note>

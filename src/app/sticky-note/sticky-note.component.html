@@ -1,7 +1,7 @@
 <div 
     class="sticky-note"
-    
-    >
+    [style.top]="stickyNote.topPosition"
+    [style.left]="stickyNote.leftPosition">
         <p>{{ stickyNote.reasonForNote }}</p>
         <h3>{{ stickyNote.firstName }}</h3>
         <p>TODO: remove this! <br>

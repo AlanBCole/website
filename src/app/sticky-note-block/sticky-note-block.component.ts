@@ -24,7 +24,5 @@ export class StickyNoteBlockComponent implements OnInit {
 
   leaveANote() {
     this.showNewNoteModal.emit(true);
-    console.log('I\'m trying to make a new note but I need to do a few things first:');
-    console.log('  1. put the notes in an array/model', ' 2.  *ngFor', '3. template binding stuff', '4. create a modal for the note.');
   }
 }
