@@ -12,7 +12,7 @@ import { error } from 'util';
 })
 export class DeskComponent implements OnInit {
 
-    stickyNotes = [];
+    stickyNotes: Note[];
     isModalShown = false;
 
     constructor(
@@ -22,20 +22,48 @@ export class DeskComponent implements OnInit {
     ngOnInit() {
         this.firebase.getNotes()
             .subscribe((response) => {
-                this.stickyNotes = response;
-                console.log('from firebase —', response);
+                if (!response) {
+                    this.stickyNotes = [
+                        {
+                            firstName: 'test',
+                            lastName: 'test',
+                            reasonForNote: 'test',
+                            message: 'test',
+                            email: 'test',
+                            company: 'test',
+                            topPosition: 'test',
+                            leftPosition: 'test',
+                        }
+                    ];
+                } else if (response) {
+
+                    const noteResponse = [];
+                    response.forEach((note) => {
+                        if (note) {
+                            noteResponse.push(note);
+                        }
+                    });
+
+                    this.stickyNotes = noteResponse;
+                    console.log('from firebase —', response);
+
+                    this.firebase.addNote(this.stickyNotes)
+                        .subscribe();
+                }
             });
 
-        this.moveService.changeNotePosition.subscribe((newNotePosition) => {
-            const index = newNotePosition.noteIndex;
-            const changedNote = this.stickyNotes[index];
+        this.moveService.changeNotePosition.subscribe(
+            (newNotePosition) => {
+                const index = newNotePosition.noteIndex;
+                const changedNote = this.stickyNotes[index];
 
-            changedNote.topPosition = newNotePosition.top;
-            changedNote.leftPosition = newNotePosition.left;
+                changedNote.topPosition = newNotePosition.top;
+                changedNote.leftPosition = newNotePosition.left;
 
-            this.firebase.addChangesToNote(changedNote, index)
-                .subscribe(response => console.log(response));
-        });
+                this.firebase.addChangesToNote(changedNote, index)
+                    .subscribe(response => console.log(response));
+            }
+        );
     }
 
     showOnDeskNewNoteModal(event: boolean) {
@@ -43,11 +71,11 @@ export class DeskComponent implements OnInit {
     }
 
     addNewNoteToDesk(newNote: Note) {
-        const index = this.stickyNotes.length;
+        // const index = this.stickyNotes.length;
         this.stickyNotes.push(newNote);
         console.log('notes on desk -', this.stickyNotes);
 
-        this.firebase.addNote(newNote, index)
+        this.firebase.addNote(this.stickyNotes)
             .subscribe((res) => {
                 console.log('put request firebase', res);
                 console.log(this.stickyNotes);
