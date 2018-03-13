@@ -16,7 +16,5 @@ export class StickyNoteComponent implements OnInit {
 
     constructor() { }
 
-    ngOnInit() {
-        console.log('sticky note ngOnInit:', this.stickyNote);
-    }
+    ngOnInit() {}
 }

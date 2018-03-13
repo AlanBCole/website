@@ -40,3 +40,9 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+# firebase functions stuff
+/functions/src/functions-config.ts
+/functions/lib/functions-config.js
+/functions/lib/functions-config.js.map
+/functions/node_modules
