@@ -17,7 +17,7 @@ export class DeskComponent implements OnInit {
 
     constructor(
         private firebase: FirebaseService,
-        private moveService: MoveElementService) {}
+        public moveService: MoveElementService) {}
 
     ngOnInit() {
         this.firebase.getNotes()
@@ -45,7 +45,7 @@ export class DeskComponent implements OnInit {
                     });
 
                     this.stickyNotes = noteResponse;
-                    console.log('from firebase —', response);
+                    console.log('had to transform response from firebase', noteResponse);
 
                     this.firebase.addNote(this.stickyNotes)
                         .subscribe();

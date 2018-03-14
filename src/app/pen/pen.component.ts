@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { MoveElementService } from 'app/move-element.service';
 
 @Component({
   selector: 'app-pen',
@@ -8,7 +7,7 @@ import { MoveElementService } from 'app/move-element.service';
 })
 export class PenComponent implements OnInit {
 
-  constructor(private moveService: MoveElementService) { }
+  constructor() { }
 
   ngOnInit() {
   }

@@ -6,9 +6,10 @@ import { NotePosition } from './note-position.model';
 export class MoveElementService {
     @Output() changeNotePosition: EventEmitter<NotePosition> = new EventEmitter();
     zIndex = 0;
+    noteIndex: number;
 
-    moveElement(event, i) {
-
+    moveElement(event, i?: number) {
+        if (i) { this.noteIndex = i; }
         this.zIndex += 1;
 
         let position1 = 0;
@@ -40,7 +41,7 @@ export class MoveElementService {
                 const notePosition: NotePosition = {
                     top: element.style.top,
                     left: element.style.left,
-                    noteIndex: i
+                    noteIndex: this.noteIndex
                 };
 
                 this.changeNotePosition.emit(notePosition);

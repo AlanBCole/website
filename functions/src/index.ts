@@ -19,11 +19,9 @@ const mailTransport = nodemailer.createTransport({
     },
 });
 
-function sendEmails(toMe, toSender) {
-    mailTransport.send(toMe)
-        .then(() => {console.log('sent email to: ' + toMe.to)});
-    mailTransport.send(toSender)
-    .then(() => {console.log('sent email to: ' + toSender.to)});
+function sendEmails(toMe, toSender): {me: Promise<any>, sender: Promise<any>} {
+    
+    return {me: mailTransport.sendMail(toMe), sender: mailTransport.sendMail(toSender)}
 }
 
 export const sendEmail = functions.database.ref('/stickyNotes/{note}').onCreate((event) => {
@@ -33,15 +31,31 @@ export const sendEmail = functions.database.ref('/stickyNotes/{note}').onCreate(
         from: '"AlanBColeCodingWebsite" <noreply@code.io>',
         to: gmailEmail,
         subject: newStickyNote.reasonForNote,
-        html: '<p>' + newStickyNote.message + '</p><p> Name: ' + newStickyNote.firstName + ' ' + newStickyNote.lastname + '</p><p> Email: ' + newStickyNote.email + '</p><p> Company: ' + newStickyNote.company + '</p>' 
+        html: `
+            <p>Name: ${newStickyNote.firstName} ${newStickyNote.lastName}</p>
+            <p>Email: ${newStickyNote.email}</p>
+            <p>Company: ${newStickyNote.company}</p>
+            <p>${newStickyNote.message}</p>`
     }
 
     const messageToSender = {
         from: '"AlanBColeCodingWebsite" <noreply@code.io>',
         to: newStickyNote.email,
         subject: 'Thank you for contacting me',
-        html: '<h2>This is what you sent me: </h2><p>' + newStickyNote.message + '</p><p> Name: ' + newStickyNote.firstName + ' ' + newStickyNote.lastname + '</p><p> Email: ' + newStickyNote.email + '</p><p> Company: ' + newStickyNote.company + '</p>'
+        html: `
+            <h2>You left me the following note. Thanks!</h2>
+            <p>Name: ${newStickyNote.firstName} ${newStickyNote.lastName}</p>
+            <p>Email: ${newStickyNote.email}</p>
+            <p>Company: ${newStickyNote.company}</p>
+            <p>${newStickyNote.message}</p>`
     }
 
-    return sendEmails(messageToMe, messageToSender);
+    const emails = sendEmails(messageToMe, messageToSender);
+    emails.me
+        .then((res) => console.log(`email to me: ${messageToMe.to} `, res))
+        .catch((err) => console.log(`problem with email to me: ${messageToMe.to} `, err));
+
+    emails.sender
+        .then((res) => console.log(`email to sender: ${messageToSender.to}: `, res))
+        .catch((err) => console.log(`problem with email to sender: ${messageToSender.to}: `, err));
 })
