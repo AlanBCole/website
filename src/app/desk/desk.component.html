@@ -18,6 +18,6 @@
             [stickyNote]="note"
             (mousedown)="moveService.moveElement($event, i)">
         </app-sticky-note>
-        <app-pen (mousedown)="moveService.moveElement($event)"></app-pen>
+        <app-pen (mousedown)="moveService.moveElement($event, 0)"></app-pen>
     </div>
 </div>

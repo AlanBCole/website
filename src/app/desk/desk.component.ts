@@ -45,7 +45,8 @@ export class DeskComponent implements OnInit {
                     });
 
                     this.stickyNotes = noteResponse;
-                    console.log('had to transform response from firebase', noteResponse);
+                    console.log('from firebase /stickyNotes ', response);
+                    console.log('stickyNotes after forEach() ', this.stickyNotes);
 
                     this.firebase.addNote(this.stickyNotes)
                         .subscribe();
