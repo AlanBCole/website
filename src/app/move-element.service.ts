@@ -7,6 +7,25 @@ export class MoveElementService {
     @Output() changeNotePosition: EventEmitter<NotePosition> = new EventEmitter();
     zIndex = 0;
 
+    transformPositionsToPercentages(top: string, left: string): { top: string, left: string } {
+    /*
+    * this method is to change the "XXpx" string value stored in
+    * HTMLElement.style.top/left to the "XX%" string value so that the note
+    * positions will be responsive.
+    */
+        const topPositionNumber = parseInt(top.replace('px', ''), 10);
+        const leftPositionNumber = parseInt(left.replace('px', ''), 10);
+        const screenHeight = window.screen.height;
+        const screenWidth = window.screen.width;
+
+        const topPercentage = Math.floor((topPositionNumber / screenHeight) * 100).toString() + '%';
+        const leftPercentage = Math.floor((leftPositionNumber / screenWidth) * 100).toString() + '%';
+
+        return {
+                    top: topPercentage,
+                    left: leftPercentage
+                };
+    }
     moveElement(event, i) {
         this.zIndex += 1;
 
@@ -15,9 +34,9 @@ export class MoveElementService {
         let position3 = 0;
         let position4 = 0;
 
-        const element = event.target;
+        const element: HTMLElement = event.target;
         element.classList.add('moving');
-        element.style.zIndex = this.zIndex;
+        element.style.zIndex = this.zIndex.toString();
 
         position3 = event.clientX;
         position4 = event.clientY;
@@ -28,17 +47,19 @@ export class MoveElementService {
             position3 = ev.clientX;
             position4 = ev.clientY;
 
-            element.style.top = (element.offsetTop - position2).toString() + 'px';
-            element.style.left = (element.offsetLeft - position1).toString() + 'px';
+            element.style.top = (element.offsetTop - position2).toString();
+            element.style.left = (element.offsetLeft - position1).toString();
         };
 
         document.onmouseup = () => {
             element.classList.remove('moving');
             if (element.className === 'sticky-note') {
 
+                const topAndLeftPositions = this.transformPositionsToPercentages(element.style.top, element.style.left);
+
                 const notePosition: NotePosition = {
-                    top: element.style.top,
-                    left: element.style.left,
+                    top: topAndLeftPositions.top,
+                    left: topAndLeftPositions.left,
                     noteIndex: i
                 };
 

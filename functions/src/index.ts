@@ -21,7 +21,10 @@ const mailTransport = nodemailer.createTransport({
 
 function sendEmails(toMe, toSender): {me: Promise<any>, sender: Promise<any>} {
     
-    return {me: mailTransport.sendMail(toMe), sender: mailTransport.sendMail(toSender)}
+    return {
+                me: mailTransport.sendMail(toMe),
+                sender: mailTransport.sendMail(toSender)
+            }
 }
 
 export const sendEmail = functions.database.ref('/stickyNotes/{note}').onCreate((event) => {
