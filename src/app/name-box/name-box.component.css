@@ -5,11 +5,6 @@
     display: flex;
 }
 
-.box:hover {
-    background-color: lightblue;
-    font-size: xx-large;
-}
-
 .name, .contact {
     width: 50%;
 }

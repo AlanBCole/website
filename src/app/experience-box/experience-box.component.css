@@ -4,8 +4,3 @@
     width: 66%;
     margin: -2px 0 0 33%;
 }
-
-.box:hover {
-    background-color: lightblue;
-    font-size: xx-large;
-}

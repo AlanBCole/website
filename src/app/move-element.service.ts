@@ -6,6 +6,8 @@ import { NotePosition } from './note-position.model';
 export class MoveElementService {
     @Output() changeNotePosition: EventEmitter<NotePosition> = new EventEmitter();
     zIndex = 0;
+    screenHeight = window.innerHeight;
+    screenWidth = window.innerWidth;
 
     transformPositionsToPercentages(top: string, left: string): { top: string, left: string } {
     /*
@@ -13,19 +15,24 @@ export class MoveElementService {
     * HTMLElement.style.top/left to the "XX%" string value so that the note
     * positions will be responsive.
     */
-        const topPositionNumber = parseInt(top.replace('px', ''), 10);
-        const leftPositionNumber = parseInt(left.replace('px', ''), 10);
-        const screenHeight = window.screen.height;
-        const screenWidth = window.screen.width;
+        if (top.includes('px') || left.includes('px')) {
 
-        const topPercentage = Math.floor((topPositionNumber / screenHeight) * 100).toString() + '%';
-        const leftPercentage = Math.floor((leftPositionNumber / screenWidth) * 100).toString() + '%';
+            const topPositionNumber = parseInt(top.replace('px', ''), 10);
+            // console.log('transformPositions top: ' + topPositionNumber);
+            const leftPositionNumber = parseInt(left.replace('px', ''), 10);
+            // console.log('transformPositions left: ' + leftPositionNumber);
 
-        return {
-                    top: topPercentage,
-                    left: leftPercentage
-                };
+            const topPercentage = ((topPositionNumber / this.screenHeight) * 100).toString() + '%';
+            const leftPercentage = ((leftPositionNumber / this.screenWidth) * 100).toString() + '%';
+
+            return { top: topPercentage, left: leftPercentage };
+
+        } else {
+
+            return { top: top, left: left };
+        }
     }
+
     moveElement(event, i) {
         this.zIndex += 1;
 
@@ -47,8 +54,11 @@ export class MoveElementService {
             position3 = ev.clientX;
             position4 = ev.clientY;
 
-            element.style.top = (element.offsetTop - position2).toString();
-            element.style.left = (element.offsetLeft - position1).toString();
+            const topNumber = element.offsetTop - position2;
+            const leftNumber = element.offsetLeft - position1;
+
+            element.style.top = topNumber.toString() + 'px';
+            element.style.left = leftNumber.toString() + 'px';
         };
 
         document.onmouseup = () => {
