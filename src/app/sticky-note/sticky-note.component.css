@@ -1,3 +1,7 @@
+* {
+    user-select: none;
+}
+
 .sticky-note {
     height: 210px;
     width: 210px;

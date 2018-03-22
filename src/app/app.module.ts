@@ -19,6 +19,7 @@ import { ModalComponent } from './modal/modal.component';
 
 import { MoveElementService } from './move-element.service';
 import { FirebaseService } from './firebase-service.service';
+import { InfoOutlineComponent } from './paper/info-outline/info-outline.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { FirebaseService } from './firebase-service.service';
     PenComponent,
     StickyNoteBlockComponent,
     NameplateComponent,
-    ModalComponent
+    ModalComponent,
+    InfoOutlineComponent
   ],
   imports: [
     BrowserModule,

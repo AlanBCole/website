@@ -15,7 +15,7 @@ export class ModalComponent implements OnInit {
         reasonForNote: '',
         message: '',
         email: '',
-        company: '',
+        company: '(optional)',
         topPosition: '',
         leftPosition: '',
     };

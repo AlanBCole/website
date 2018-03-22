@@ -9,7 +9,7 @@
         <h1>leave me a note</h1>
         <p>I'll send you an e-mail, too.</p>
 
-        <form #stickyNoteForm="ngForm">
+        <form #stickyNoteForm="ngForm" (ngSubmit)="submitNewStickyNote()">
 
             <div class="small-input">
                 <label for="first-name">first name</label>
@@ -30,7 +30,7 @@
                     name="last-name"
                     [(ngModel)]="newStickyNote.lastName"
                     #lastName="ngModel"
-                    required>
+                    required >
             </div>
 
             <div class="small-input">
@@ -82,7 +82,8 @@
                     required></textarea>
             </div>
             <div class="big-input">
-                <button type="submit" (click)="submitNewStickyNote()">
+                <button type="submit" 
+                [disabled]="!stickyNoteForm.form.valid">
                     leave a note
                 </button>
             </div>

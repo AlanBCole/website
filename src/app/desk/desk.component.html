@@ -12,12 +12,15 @@
         
         <app-sticky-note-block (showNewNoteModal)="showOnDeskNewNoteModal($event)"></app-sticky-note-block>
         <app-paper></app-paper>
-        <app-pen (mousedown)="moveService.moveElement($event, 0)"></app-pen>
-    </div>
 
+    </div>
+        
     <app-sticky-note
-        *ngFor="let note of stickyNotes; index as i"
+        *ngFor="let note of stickyNotes; index as i;"
         [stickyNote]="note"
         (mousedown)="moveService.moveElement($event, i)">
     </app-sticky-note>
+
+    <app-pen (mousedown)="moveService.moveElement($event, 0)"></app-pen>
+    
 </div>
