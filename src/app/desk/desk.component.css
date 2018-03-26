@@ -5,11 +5,28 @@
     width: 100%;
     min-height: 100vh;
     box-sizing: border-box;
+    overflow-x: hidden;
 }
 
 .work-area {
-    position: relative;
+    /* position: relative; */
     max-width: 1100px;
     margin: 0 auto;
     padding: 1rem 0 0 0;
+    display: flex;
+    flex-flow: wrap;
+}
+
+app-nameplate {
+    width: 50%;
+}
+
+app-sticky-note-block {
+    width: 50%;  
+}
+
+app-paper {
+    width: 85%;
+    max-width: 600px;
+    margin: 2rem auto 4rem;
 }

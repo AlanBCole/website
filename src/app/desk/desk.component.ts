@@ -25,14 +25,14 @@ export class DeskComponent implements OnInit {
                 if (!response) {
                     this.stickyNotes = [
                         {
-                            firstName: 'test',
-                            lastName: 'test',
-                            reasonForNote: 'test',
-                            message: 'test',
+                            firstName: 'Justin',
+                            lastName: 'Teem',
+                            reasonForNote: 'Just saying hi!',
+                            message: 'first note',
                             email: 'test',
                             company: 'test',
-                            topPosition: 'test',
-                            leftPosition: 'test',
+                            topPosition: '10%',
+                            leftPosition: '10%',
                         }
                     ];
                 } else if (response) {
@@ -62,7 +62,8 @@ export class DeskComponent implements OnInit {
                 changedNote.leftPosition = newNotePosition.left;
 
                 this.firebase.addChangesToNote(changedNote, index)
-                    .subscribe(response => console.log(response));
+                    .subscribe();
+                    // .subscribe(response => console.log(response));
             }
         );
     }

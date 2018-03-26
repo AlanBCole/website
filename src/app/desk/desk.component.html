@@ -6,11 +6,13 @@
         (addThisStickyNote)="addNewNoteToDesk($event)">
     </app-modal>
     
-    <app-nameplate></app-nameplate>
     
     <div class="work-area">
+        <app-nameplate></app-nameplate>
         
-        <app-sticky-note-block (showNewNoteModal)="showOnDeskNewNoteModal($event)"></app-sticky-note-block>
+        <app-sticky-note-block
+            (showNewNoteModal)="showOnDeskNewNoteModal($event)">
+        </app-sticky-note-block>
         <app-paper></app-paper>
 
     </div>

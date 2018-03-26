@@ -1,0 +1,26 @@
+* {
+    box-sizing: border-box;
+}
+
+.outline {
+  height: 80%;
+  width: 75%;
+  background: GhostWhite;
+  padding: 2rem 3rem;
+  position: absolute;
+  top: -50%;
+  left: 100%;
+  transform: rotate(359deg);
+  transition-property: left transform;
+  transition-duration: .25s;
+  box-shadow: 2px 2px 3px 2px rgba(0, 0, 0, 0.2);
+}
+
+.see-outline {
+  z-index: 999;
+  top: 10%;
+  left: 15%;
+  transform: rotate(-5deg);
+  transition-property: left transform;
+  transition-duration: .25s;
+}

@@ -1,7 +1,26 @@
 .paper {
-    width: 90%;
-    margin: 0 auto;
     padding: 1rem;
     background-color: whitesmoke;
-    box-shadow: 2px 3px 5px rgba(0, 0, 0, 75);;
+    box-shadow: 2px 3px 5px rgba(0, 0, 0, 75);
+    text-align: center;
+}
+
+.box {
+    border: 2px solid black;
+    /* height: 100px; */
+    width: 66%;  
+    text-align: center;
+}
+
+.skills {
+    width: 50%;
+    margin:-2px 11% 0 39%;
+}
+
+.experience {
+    margin: -2px 0 0 33%;
+}
+
+p {
+    margin: 2rem auto 0;
 }

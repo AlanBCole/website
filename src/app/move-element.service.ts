@@ -6,8 +6,8 @@ import { NotePosition } from './note-position.model';
 export class MoveElementService {
     @Output() changeNotePosition: EventEmitter<NotePosition> = new EventEmitter();
     zIndex = 0;
-    screenHeight = window.innerHeight;
-    screenWidth = window.innerWidth;
+    screenHeight: number;
+    screenWidth: number;
 
     transformPositionsToPercentages(top: string, left: string): { top: string, left: string } {
     /*
@@ -35,6 +35,8 @@ export class MoveElementService {
 
     moveElement(event, i) {
         this.zIndex += 1;
+        this.screenHeight = window.innerHeight;
+        this.screenWidth = window.innerWidth;
 
         let position1 = 0;
         let position2 = 0;

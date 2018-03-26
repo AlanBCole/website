@@ -1,15 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-paper',
-  templateUrl: './paper.component.html',
-  styleUrls: ['./paper.component.css']
+    selector: 'app-paper',
+    templateUrl: './paper.component.html',
+    styleUrls: ['./paper.component.css']
 })
 export class PaperComponent implements OnInit {
+    info: string;
+    constructor() { }
 
-  constructor() { }
+    ngOnInit() {
+        const paper = document.querySelector('.paper');
+    }
 
-  ngOnInit() {
-  }
-
+    moveOutline(info: string) {
+        this.info = info;
+        const outline = document.querySelector('.outline');
+        outline.classList.toggle('see-outline');
+    }
 }

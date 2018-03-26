@@ -7,7 +7,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class StickyNoteBlockComponent implements OnInit {
 
-  isAddSignShown: Boolean = false;
+  isAddSignShown = false;
   @Output() showNewNoteModal = new EventEmitter<boolean>();
   constructor() { }
 

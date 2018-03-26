@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { InfoOutlineComponent } from './info-outline.component';
+import { OutlineComponent } from './outline.component';
 
 describe('InfoOutlineComponent', () => {
-  let component: InfoOutlineComponent;
-  let fixture: ComponentFixture<InfoOutlineComponent>;
+  let component: OutlineComponent;
+  let fixture: ComponentFixture<OutlineComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ InfoOutlineComponent ]
+      declarations: [ OutlineComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(InfoOutlineComponent);
+    fixture = TestBed.createComponent(OutlineComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
