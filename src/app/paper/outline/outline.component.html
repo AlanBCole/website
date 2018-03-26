@@ -1,8 +1,36 @@
 <div class="outline">
-    <h1>{{ info }}</h1>
     <span 
-        class="close-btn"
-        (click)="moveThisOutline()">
-            X
+    class="close-btn"
+    (click)="moveThisOutline()">
+    X
     </span>
+    <h1>{{ info }}</h1>
+    <h2>{{ me.name }}</h2>
+    <div class="about-me">
+
+        <div class="portrait">
+            <img src="{{ me.aboutMe.portrait }}" alt="A very respectable picture of Alan B Cole">
+        </div>
+        <p *ngFor="let p of me.aboutMe.about"> {{ p }}</p>
+
+    </div>
+
+    <div class="skills">
+        <ul>
+            <li *ngFor="let skill of me.skills.skillsList">
+                {{skill}}
+            </li>
+        </ul>
+        <ul>
+            <li *ngFor="let social of me.skills.socialLinks">
+                <a href="{{social.link}}" target="_blank">
+                    {{ social.title }}
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="experience">
+
+    </div>
 </div>

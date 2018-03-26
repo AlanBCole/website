@@ -10,7 +10,6 @@ export class PaperComponent implements OnInit {
     constructor() { }
 
     ngOnInit() {
-        const paper = document.querySelector('.paper');
     }
 
     moveOutline(info: string) {

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { Note } from './note.model';
+import { Me } from './me.model';
 
 @Injectable()
 export class FirebaseService {
@@ -30,5 +31,9 @@ export class FirebaseService {
 
     addChangesToOtherNote(changedNote, index) {
         return this.firebase.patch('https://alanbcolecodewebsite.firebaseio.com/otherStickyNotes/' + index + '.json', changedNote);
+    }
+
+    addMe(me: Me) {
+        return this.firebase.put('https://alanbcolecodewebsite.firebaseio.com/me', me);
     }
 }
