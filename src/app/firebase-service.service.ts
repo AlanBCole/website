@@ -1,15 +1,28 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
+import { GetStickyNotesService } from './get-sticky-notes.service';
 import { Note } from './note.model';
 import { Me } from './me.model';
+// import { not } from '@angular/compiler/src/output/output_ast';
 
 @Injectable()
 export class FirebaseService {
-    constructor(private firebase: HttpClient) {}
+    constructor(
+        private firebase: HttpClient,
+        private check: GetStickyNotesService) {}
 
-    getNotes() {
-        return this.firebase.get<Note[]>('https://alanbcolecodewebsite.firebaseio.com/stickyNotes.json');
+    getNotes(): any {
+        return this.firebase.get<Note[]>('https://alanbcolecodewebsite.firebaseio.com/stickyNotes.json')
+            .subscribe(
+                (response) => {
+                    console.log(response);
+                    const notes: Note[] = response;
+                },
+                (err) => {
+                    console.log(err);
+                }
+            );
     }
 
     addNote(notes) {

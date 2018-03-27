@@ -8,14 +8,15 @@ import { AppComponent } from './app.component';
 import { StickyNoteComponent } from './sticky-note/sticky-note.component';
 import { DeskComponent } from './desk/desk.component';
 import { MyInfoComponent } from './my-info/my-info.component';
+import { OutlineComponent } from './my-info/outline/outline.component';
 import { PenComponent } from './pen/pen.component';
 import { StickyNoteBlockComponent } from './sticky-note-block/sticky-note-block.component';
 import { NameplateComponent } from './nameplate/nameplate.component';
 import { ModalComponent } from './modal/modal.component';
 
+import { GetStickyNotesService } from './get-sticky-notes.service';
 import { MoveElementService } from './move-element.service';
 import { FirebaseService } from './firebase-service.service';
-import { OutlineComponent } from './my-info/outline/outline.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { OutlineComponent } from './my-info/outline/outline.component';
   providers: [
     MoveElementService,
     FirebaseService,
+    GetStickyNotesService,
   ],
   bootstrap: [AppComponent]
 })

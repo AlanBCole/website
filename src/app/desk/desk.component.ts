@@ -20,38 +20,7 @@ export class DeskComponent implements OnInit {
         public moveService: MoveElementService) {}
 
     ngOnInit() {
-        this.firebase.getNotes()
-            .subscribe((response) => {
-                if (!response) {
-                    this.stickyNotes = [
-                        {
-                            firstName: 'Justin',
-                            lastName: 'Teem',
-                            reasonForNote: 'Just saying hi!',
-                            message: 'first note',
-                            email: 'test',
-                            company: 'test',
-                            topPosition: '10%',
-                            leftPosition: '10%',
-                        }
-                    ];
-                } else if (response) {
-
-                    const noteResponse = [];
-                    response.forEach((note) => {
-                        if (note) {
-                            noteResponse.push(note);
-                        }
-                    });
-
-                    this.stickyNotes = noteResponse;
-                    console.log('from firebase /stickyNotes ', response);
-                    console.log('stickyNotes after forEach() ', this.stickyNotes);
-
-                    this.firebase.addNote(this.stickyNotes)
-                        .subscribe();
-                }
-            });
+        this.stickyNotes = this.firebase.getNotes() as Note[];
 
         this.moveService.changeNotePosition.subscribe(
             (newNotePosition) => {
