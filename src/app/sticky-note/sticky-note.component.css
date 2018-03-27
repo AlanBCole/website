@@ -1,9 +1,10 @@
 .sticky-note {
     height: 210px;
     width: 210px;
-    background-color: #FFEB3B;
+    background-color: #FFFF8D;
     text-align: center;
-    font-family: cursive;
+    font-family: 'Dawning of a New Day', cursive;
+    font-size: 1.5rem;
     box-shadow: 0 5px 5px black;
     cursor: -webkit-grab;
     position: absolute;
