@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PaperComponent } from './paper.component';
+import { MyInfoComponent } from './my-info.component';
 
-describe('PaperComponent', () => {
-  let component: PaperComponent;
-  let fixture: ComponentFixture<PaperComponent>;
+describe('MyInfoComponent', () => {
+  let component: MyInfoComponent;
+  let fixture: ComponentFixture<MyInfoComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PaperComponent ]
+      declarations: [ MyInfoComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PaperComponent);
+    fixture = TestBed.createComponent(MyInfoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

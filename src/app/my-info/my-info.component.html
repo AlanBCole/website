@@ -1,7 +1,7 @@
 <div class="paper">
     <div
         class="box about"
-        (click)="moveOutline('about')">
+        (click)="moveOutline('aboutMe')">
             <h1>
                 about me
             </h1>
@@ -23,7 +23,7 @@
     
     <app-outline
         (moveOutline)="moveOutline($event)"
-        [info]="info">
+        [whichInfo]="info">
     </app-outline>  
     <p>(click a box to see more info)</p>
 </div>

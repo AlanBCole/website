@@ -4,18 +4,24 @@
     (click)="moveThisOutline()">
     X
     </span>
-    <h1>{{ info }}</h1>
-    <h2>{{ me.name }}</h2>
-    <div class="about-me">
+    <h1>{{ me.name }}</h1>
+    <h2>{{ whichInfo }}</h2>
+
+    <div
+        *ngIf="isAboutMe"
+        class="about-me">
 
         <div class="portrait">
             <img src="{{ me.aboutMe.portrait }}" alt="A very respectable picture of Alan B Cole">
         </div>
+
         <p *ngFor="let p of me.aboutMe.about"> {{ p }}</p>
 
     </div>
 
-    <div class="skills">
+    <div
+    *ngIf="isSkills" 
+        class="skills">
         <ul>
             <li *ngFor="let skill of me.skills.skillsList">
                 {{skill}}
@@ -30,7 +36,9 @@
         </ul>
     </div>
 
-    <div class="experience">
+    <div
+    *ngIf="isExperience"
+        class="experience">
 
     </div>
 </div>

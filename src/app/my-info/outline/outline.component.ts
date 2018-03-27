@@ -9,13 +9,43 @@ import { Me } from '../../me.model';
     styleUrls: ['./outline.component.css']
 })
 export class OutlineComponent implements OnInit {
-    @Input() info: string;
-    @Output() moveOutline = new EventEmitter<string>();
+    myInfo: string;
+    isAboutMe = false;
+    isSkills = false;
+    isExperience = false;
+    @Input() set whichInfo(info) {
+        this.myInfo = info;
+        switch (info) {
+            case 'aboutMe':
+                this.isAboutMe = true;
+                this.isSkills = false;
+                this.isExperience = false;
+                break;
+            case 'skills':
+                this.isAboutMe = false;
+                this.isSkills = true;
+                this.isExperience = false;
+                break;
+            case 'skills':
+                this.isAboutMe = false;
+                this.isSkills = false;
+                this.isExperience = true;
+                break;
+            default:
+                this.isAboutMe = false;
+                this.isSkills = false;
+                this.isExperience = false;
+                break;
+        }
+    }
+    get whichInfo() {
+        return this.myInfo;
+    }
 
     me: Me = {
         name: 'Alan Cole',
         aboutMe: {
-            portrait: '../../../assets/images/me.jgp',
+            portrait: './assets/images/me.jgp',
             about: [
                 'I am pretty nice.',
                 'Very fun to be around.',
@@ -56,18 +86,15 @@ export class OutlineComponent implements OnInit {
             }
         ],
     };
-
-    isAboutMe = true;
-    isSkills = true;
-    isExperience = true;
+    @Output() moveOutline = new EventEmitter<string>();
 
     constructor(public firebase: FirebaseService) {}
 
     ngOnInit() {
-        this.firebase.addMe(this.me);
+        // this.firebase.addMe(this.me);
     }
 
     moveThisOutline() {
-        this.moveOutline.emit('closing ' + this.info);
+        this.moveOutline.emit(this.whichInfo);
     }
 }
