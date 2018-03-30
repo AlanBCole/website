@@ -12,17 +12,8 @@ export class FirebaseService {
         private firebase: HttpClient,
         private check: GetStickyNotesService) {}
 
-    getNotes(): any {
-        return this.firebase.get<Note[]>('https://alanbcolecodewebsite.firebaseio.com/stickyNotes.json')
-            .subscribe(
-                (response) => {
-                    console.log(response);
-                    const notes: Note[] = response;
-                },
-                (err) => {
-                    console.log(err);
-                }
-            );
+    getNotes() {
+        return this.firebase.get<Note[]>('https://alanbcolecodewebsite.firebaseio.com/stickyNotes.json');
     }
 
     addNote(notes) {

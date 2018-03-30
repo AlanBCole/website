@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Note } from '../note.model';
 import { FirebaseService } from '../firebase-service.service';
 import { MoveElementService } from '../move-element.service';
-import { error } from 'util';
+import { GetStickyNotesService } from '../get-sticky-notes.service';
 
 @Component({
     selector: 'app-desk',
@@ -11,16 +11,26 @@ import { error } from 'util';
     styleUrls: ['./desk.component.css']
 })
 export class DeskComponent implements OnInit {
-
+    notesFromFirebase: Note[];
     stickyNotes: Note[];
     isModalShown = false;
 
     constructor(
         private firebase: FirebaseService,
-        public moveService: MoveElementService) {}
+        public moveService: MoveElementService,
+        private checkNotes: GetStickyNotesService) {}
 
     ngOnInit() {
-        this.stickyNotes = this.firebase.getNotes() as Note[];
+
+        this.firebase.getNotes()
+        .subscribe((res) => {
+            console.log(res);
+            const filteredFromFirebase = this.checkNotes.notesThreeOrLess(res);
+            console.log(filteredFromFirebase);
+            this.stickyNotes = filteredFromFirebase;
+        });
+
+        // console.log(this.checkNotes.notesThreeOrLess(notesFromFirebase));
 
         this.moveService.changeNotePosition.subscribe(
             (newNotePosition) => {

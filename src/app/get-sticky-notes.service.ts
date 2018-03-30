@@ -5,28 +5,20 @@ import { Note } from './note.model';
 @Injectable()
 export class GetStickyNotesService {
 
-    checkGetResponse(response: Note[]): Note[] {
-        let notes: Note[] = [];
-
-        if (response && response.length < 4) {
-            notes = response;
+    notesThreeOrLess(notes: Note[]) {
+        if (!notes) {
+            this.makeNote();
+        } else if (notes.length < 4) {
             return notes;
-
-        } else if (response.length > 3) {
-
-            for (let i = (response.length - 3); i < response.length; i++) {
-                notes.push(response[i]);
-            }
-            return notes;
-
         } else {
-            const note = this.makeNote();
-            notes.push(note);
-            return notes;
+            const lastThreeNotes = notes.filter((note, index) => {
+                return index > notes.length - 4;
+            });
+            return lastThreeNotes;
         }
     }
 
-    makeNote(): Note {
+    makeNote(): Note[] {
         const note = {
             firstName: 'Justin',
             lastName: 'Teem',
@@ -37,6 +29,6 @@ export class GetStickyNotesService {
             topPosition: '10%',
             leftPosition: '10%',
         };
-        return note;
+        return [note];
     }
 }
