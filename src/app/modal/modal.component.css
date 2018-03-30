@@ -12,7 +12,7 @@
 }
 
 .modal-content {
-    background-color: gold;
+    background-color: #FFFF8D;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -32,7 +32,6 @@ label {
     width: 25%;
     text-align: right;
 }
-
 
 input, textarea, select {
     background: none;

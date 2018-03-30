@@ -1,11 +1,5 @@
 .sticky-note {
-    height: 210px;
-    width: 210px;
-    background-color: #FFFF8D;
     text-align: center;
-    font-family: 'Cedarville Cursive', cursive;
-    font-size: 1.25rem;
-    /* text-transform: uppercase; */
     box-shadow: 0 5px 5px black;
     cursor: -webkit-grab;
     position: absolute;

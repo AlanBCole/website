@@ -1,14 +1,10 @@
 .sticky-note-block {
     display: flex;
-    font-family: cursive;
     box-sizing: border-box;
     /* padding: 3rem 1rem 1rem 1rem; */
     /* text-align: center; */
     align-items: center;
     justify-content: center;
-    background: #FFFF8D;
-    width: 210px;
-    height: 210px;
     margin: 2rem auto;
     box-shadow:
         /* The top layer shadow */
