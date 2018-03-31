@@ -45,7 +45,7 @@ export class OutlineComponent implements OnInit {
     me: Me = {
         name: 'Alan Cole',
         aboutMe: {
-            portrait: './assets/images/me.jgp',
+            portrait: '/assets/images/me.jpg',
             about: [
                 'I am pretty nice.',
                 'Very fun to be around.',
@@ -65,7 +65,7 @@ export class OutlineComponent implements OnInit {
             socialLinks: [
                 {
                     title: 'Github',
-                    link: 'github.com/AlanBCole',
+                    link: 'https://www.github.com/AlanBCole',
                 },
                 {
                     title: 'LinkedIn',

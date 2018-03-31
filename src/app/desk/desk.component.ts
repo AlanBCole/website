@@ -23,12 +23,12 @@ export class DeskComponent implements OnInit {
     ngOnInit() {
 
         this.firebase.getNotes()
-        .subscribe((res) => {
-            console.log(res);
-            const filteredFromFirebase = this.checkNotes.notesThreeOrLess(res);
-            console.log(filteredFromFirebase);
-            this.stickyNotes = filteredFromFirebase;
-        });
+            .subscribe((res) => {
+                console.log('GET response: ', res);
+                const filteredFromFirebase = this.checkNotes.notesThreeOrLess(res);
+                console.log('filtered: ', filteredFromFirebase);
+                this.stickyNotes = filteredFromFirebase;
+            });
 
         // console.log(this.checkNotes.notesThreeOrLess(notesFromFirebase));
 

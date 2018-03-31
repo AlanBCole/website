@@ -7,7 +7,7 @@ export class GetStickyNotesService {
 
     notesThreeOrLess(notes: Note[]) {
         if (!notes) {
-            this.makeNote();
+            return this.makeNote();
         } else if (notes.length < 4) {
             return notes;
         } else {
