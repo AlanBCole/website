@@ -1,4 +1,5 @@
-<div 
+<div
+    *ngIf="stickyNote.isDisplayed"
     class="sticky-note note handwriting"
     [style.top]="stickyNote.topPosition"
     [style.left]="stickyNote.leftPosition">

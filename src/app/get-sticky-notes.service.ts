@@ -11,12 +11,23 @@ export class GetStickyNotesService {
         } else if (notes.length < 4) {
             return notes;
         } else {
-            const lastThreeNotes = notes.filter((note, index) => {
-                return index > notes.length - 4;
+            const lastThreeNotes = notes.map((note, index) => {
+                if (index > notes.length - 4) {
+                    return {
+                        ...note,
+                        isDisplayed: true
+                    };
+                } else {
+                    return {
+                        ...note,
+                        isDisplayed: false
+                    };
+                }
             });
             return lastThreeNotes;
         }
     }
+
 
     makeNote(): Note[] {
         const note = {
@@ -28,6 +39,7 @@ export class GetStickyNotesService {
             company: 'test',
             topPosition: '10%',
             leftPosition: '10%',
+            isDisplayed: true,
         };
         return [note];
     }

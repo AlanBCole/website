@@ -34,6 +34,7 @@ export class MoveElementService {
     }
 
     moveElement(event, i) {
+        console.log('mousedown');
         this.zIndex += 1;
         this.screenHeight = window.innerHeight;
         this.screenWidth = window.innerWidth;
@@ -64,8 +65,9 @@ export class MoveElementService {
         };
 
         document.onmouseup = () => {
+            console.log('mouseup');
             element.classList.remove('moving');
-            if (element.className === 'sticky-note') {
+            if (element.classList.contains('sticky-note')) {
 
                 const topAndLeftPositions = this.transformPositionsToPercentages(element.style.top, element.style.left);
 
@@ -74,7 +76,6 @@ export class MoveElementService {
                     left: topAndLeftPositions.left,
                     noteIndex: i
                 };
-
                 this.changeNotePosition.emit(notePosition);
             }
 

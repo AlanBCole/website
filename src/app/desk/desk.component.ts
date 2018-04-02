@@ -41,8 +41,8 @@ export class DeskComponent implements OnInit {
                 changedNote.leftPosition = newNotePosition.left;
 
                 this.firebase.addChangesToNote(changedNote, index)
-                    .subscribe();
-                    // .subscribe(response => console.log(response));
+                    // .subscribe();
+                    .subscribe(response => console.log(response));
             }
         );
     }

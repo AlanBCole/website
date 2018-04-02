@@ -18,6 +18,7 @@ export class ModalComponent implements OnInit {
         company: '(optional)',
         topPosition: '',
         leftPosition: '',
+        isDisplayed: true
     };
 
     reasonsForNote = [

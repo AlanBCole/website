@@ -7,6 +7,7 @@ export interface Note {
     company: string;
     topPosition: string;
     leftPosition: string;
+    isDisplayed: boolean;
 
     // constructor(firstName: string, lastName: string, reason: string, message: string, email: string, company: string) {
 
