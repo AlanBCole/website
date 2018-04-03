@@ -1,33 +1,39 @@
 <div class="outline">
     <span 
     class="close-btn"
-    (click)="moveThisOutline()">
-    X
-    </span>
-    <h1>{{ me.name }}</h1>
-    <h2>{{ whichInfo }}</h2>
+    (click)="moveThisOutline()">X</span>
+    
+    <div class="header">
+        <div class="title">    
+            <h1>{{ me.name }}</h1>
+            <h2 class="which-info">{{ whichInfo }}</h2>
+        </div>
+        <div class="portrait-container">
+            <div
+                *ngIf="isAboutMe"
+                class="portrait">
+                <img
+                    src="{{ me.aboutMe.portrait }}"
+                    alt="A very respectable picture of Alan B Cole">
+            </div>
+        </div>
+    </div>
 
     <div
         *ngIf="isAboutMe"
         class="about-me">
-
-        <div class="portrait">
-            <img src="{{ me.aboutMe.portrait }}" alt="A very respectable picture of Alan B Cole">
-        </div>
-
         <p *ngFor="let p of me.aboutMe.about"> {{ p }}</p>
-
     </div>
 
     <div
-    *ngIf="isSkills" 
+        *ngIf="isSkills" 
         class="skills">
         <ul>
             <li *ngFor="let skill of me.skills.skillsList">
-                {{skill}}
+                {{ skill }}
             </li>
         </ul>
-        <ul>
+        <ul class="social">
             <li *ngFor="let social of me.skills.socialLinks">
                 <a href="{{social.link}}" target="_blank">
                     {{ social.title }}
@@ -37,8 +43,24 @@
     </div>
 
     <div
-    *ngIf="isExperience"
+        *ngIf="isExperience"
         class="experience">
-
+        <div
+            class="job"
+            *ngFor="let job of me.experience">
+            <div class="job-text">
+                <h4> {{ job.title }} </h4>
+                <ul>
+                    <li
+                        *ngFor="let exp of job.description">
+                            {{ exp }}
+                    </li>
+                </ul>
+            </div>
+            <div class="job-picture">
+                <img src="{{ job.picture }}" alt="">
+            </div>
+        </div>
     </div>
+
 </div>

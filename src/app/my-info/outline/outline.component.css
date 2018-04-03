@@ -3,24 +3,110 @@
 }
 
 .outline {
-  height: 80%;
-  width: 75%;
-  background: GhostWhite;
-  padding: 2rem 3rem;
-  position: absolute;
-  top: -50%;
-  left: 100%;
-  transform: rotate(359deg);
-  transition-property: left transform;
-  transition-duration: .25s;
-  box-shadow: 2px 2px 3px 2px rgba(0, 0, 0, 0.2);
+    height: 80%;
+    width: 80%;
+    max-width: 650px;
+    background: GhostWhite;
+    font-size: 1rem;
+    color: black;
+    text-align: left;
+    padding: 2rem 3rem;
+    position: absolute;
+    top: -50%;
+    left: 100%;
+    transform: rotate(359deg);
+    transition-property: left transform;
+    transition-duration: .25s;
+    box-shadow: 2px 2px 3px 2px rgba(0, 0, 0, 0.2);
+}
+
+.outline h1, .outline h2 {
+    margin: 0;
 }
 
 .see-outline {
-  z-index: 999;
-  top: 10%;
-  left: 15%;
-  transform: rotate(-5deg);
-  transition-property: left transform;
-  transition-duration: .25s;
+    z-index: 999;
+    top: 10%;
+    left: 15%;
+    transform: rotate(-5deg);
+    transition-property: left transform;
+    transition-duration: .25s;
+}
+
+.header {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.which-info {
+    border-bottom: 2px solid black;
+    display: inline;
+}
+
+.title {
+    width: 50%;
+}
+
+.portrait-container {
+    width: 50%;
+}
+
+.portrait {
+    width: 200px;
+    height: 215px;
+    margin: 0 auto;
+    padding-top: 11px;
+    text-align: center;
+    background-color: white;
+    box-shadow: 2px 2px 4px 2px rgba(0, 0, 0, 0.4);
+}
+
+.portrait img {
+    width: 85%;
+    filter: grayscale(30%);
+}
+
+.about-me {
+    position: relative;
+}
+
+ul.social {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+ul.social li {
+    display: inline;
+    margin: 0 .5rem;
+}
+
+ul.social a {
+    text-decoration: none;
+    color: darkgray;
+    border: 1px solid;
+    padding: 5px;
+}
+
+.experience {
+    overflow: auto;
+}
+
+.job {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.job-text {
+    width: 50%;
+}
+
+.job-text ul {
+    padding-left: 1.2rem;
+}
+.job-picture {
+    width: 50%;
+}
+
+.job-picture img {
+    width: 100%;
 }

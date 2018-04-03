@@ -38,6 +38,10 @@ export class FirebaseService {
     }
 
     addMe(me: Me) {
-        return this.firebase.put('https://alanbcolecodewebsite.firebaseio.com/me', me);
+        return this.firebase.put('https://alanbcolecodewebsite.firebaseio.com/me.json', me);
+    }
+
+    getMe() {
+        return this.firebase.get<Me>('https://alanbcolecodewebsite.firebaseio.com/me.json');
     }
 }
