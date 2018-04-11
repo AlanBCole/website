@@ -1,10 +1,6 @@
 .sticky-note-block {
-    display: flex;
-    box-sizing: border-box;
-    /* padding: 3rem 1rem 1rem 1rem; */
-    /* text-align: center; */
-    align-items: center;
-    justify-content: center;
+    text-align: center;
+    overflow: hidden;
     margin: 2rem auto;
     box-shadow:
         /* The top layer shadow */
@@ -17,16 +13,19 @@
         4px 6px 1px gold,
         /* The third layer shadow */
         5px 7px 1px grey;
-        transition: 1s;
+}
+
+.sticky-note-block p {
+    margin-top: .75rem;
 }
 
 .add-note {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: 1s;
     height: 50%;
     width: 50%;
+    margin: 0 auto;
     background-color: grey;
     border-radius: 100%;
     opacity: .5;
@@ -48,4 +47,23 @@
     width: 50%;
     height: 10px;
     border-radius: 10px;
+}
+
+@media (max-width: 500px) {
+    .vertical {
+        left: 15px;
+        top: 1px;
+        width: 7px;
+        border-radius: 5px;
+    }
+
+    .horizontal {
+        height: 7px;
+        left: -4px;
+        border-radius: 5px;
+    }
+
+    .sticky-note-block p {
+        margin-top: .25rem;
+    }
 }

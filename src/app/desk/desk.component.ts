@@ -42,7 +42,10 @@ export class DeskComponent implements OnInit {
 
                 this.firebase.addChangesToNote(changedNote, index)
                     // .subscribe();
-                    .subscribe(response => console.log(response));
+                    .subscribe((response) => {
+                        console.log('note moved');
+                        console.log(response);
+                    });
             }
         );
     }

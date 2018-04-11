@@ -23,7 +23,9 @@ export class GetStickyNotesService {
                         isDisplayed: false
                     };
                 }
-            });
+            })
+            // .filter((note) => note.isDisplayed); //this messes with the moveService.changeNotePosition method
+            // as the indexes of the displayed notes no longer matched those in the firebase database.
             return lastThreeNotes;
         }
     }

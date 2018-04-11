@@ -32,3 +32,23 @@
     font-family: 'Cedarville Cursive', cursive;
     font-size: 1.25rem;
 }
+
+@media (max-width: 500px) {
+    .note {
+        height: 120px;
+        width: 120px;
+    }
+
+    .note p {
+        margin-bottom: .25rem;
+    }
+
+    .note h3 {
+        margin-top: .25rem;
+        margin-bottom: 0;
+    }
+
+    .handwriting {
+        font-size: 1rem;
+    }
+}
