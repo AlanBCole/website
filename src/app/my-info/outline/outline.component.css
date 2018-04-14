@@ -18,6 +18,8 @@
     transition-property: left transform;
     transition-duration: .25s;
     box-shadow: 2px 2px 3px 2px rgba(0, 0, 0, 0.2);
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .outline h1, .outline h2 {
@@ -109,4 +111,25 @@ ul.social a {
 
 .job-picture img {
     width: 100%;
+}
+
+@media (max-width: 500px) {
+    .outline {
+        width: 90%;
+        height: 60%;
+        padding: 1.5rem;
+    }
+
+    .see-outline {
+        top: 3%;
+        left: 5%;
+        transform: rotate(0deg);
+    }
+
+    .title {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+
+
 }
