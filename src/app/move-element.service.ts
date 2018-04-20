@@ -44,7 +44,16 @@ export class MoveElementService {
         let position3 = 0;
         let position4 = 0;
 
-        const element: HTMLElement = event.target;
+        let element: HTMLElement;
+
+        if (
+            event.target.classList.contains('sticky-note') || event.target.classList.contains('pen')
+        ) {
+            element = event.target;
+        } else {
+            element = event.target.parentElement;
+        }
+
         element.classList.add('moving');
         element.style.zIndex = this.zIndex.toString();
 
